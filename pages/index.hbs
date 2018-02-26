@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>enduro.js page</title>
+		<link rel="stylesheet" href="/assets/css/main.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,200" rel="stylesheet">
+		<style type="text/css"></style>
+	</head>
+	<body>
+		{{!-- intro --}}
+		{{#with labels}}
+			<section class="screen">
+				<div class="center_block">
+                    <p>The Labels</p>
+                    <menu id="mainmenu">
+                       <ul>
+                           {{#each list_of_labels}}
+                          <li id="{{name}}">
+                             <a href="#">{{name}}</a>
+                             <ul>
+                                 {{#each list_of_bands}}
+                                <li><a href="#{{name}}">{{name}}</a></li>
+                                 {{/each}}
+                             </ul>
+                          </li>
+                           {{/each}}
+                       </ul>
+                    </menu>			   
+				</div>
+				<div class="bottom_block vertical_pulsate">
+					<p>{{call_to_action}}</p>
+				</div>
+			</section>
+		{{/with}}
+
+		{{#with bands}}
+			<section class="screen half color1">
+                {{#each list_of_bands}}
+                <div class="panel screen" style="background-size: cover; background-image:url('{{picUrl}}')">
+					<div class="veil"></div>
+					<div class="panel_body fullwidth">
+		
+						<div class="contentbox" style="position: relative; padding: 50px; background-color: #ffffff; display: inline-block; color:black;">
+							<div class="contentbox_content">
+								<h1 id="{{name}}">{{name}}</h1>
+								<h3>{{genre}}</h3>
+                                <h4><a href="#{{label}}">{{label}}</a></h4>
+							</div>
+						</div>
+		
+					</div>
+				</div>
+                {{/each}}
+
+			</section>
+		{{/with}}
+
+
+	</body>
+
+</html>
